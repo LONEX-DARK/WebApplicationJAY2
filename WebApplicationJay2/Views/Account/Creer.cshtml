@@ -25,7 +25,9 @@
 
         @Html.TextBox("motDePasse", "", new { @type = "password" })
         <br /><br />
-        <input type="submit" value="Register" />
+        <input type="submit" value="Cree un compte" />
+        
+        @Html.ActionLink("j'ai deja un compte", "Connecter", "Account")
     }
 
 </div>

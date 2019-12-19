@@ -23,10 +23,7 @@ namespace WebApplicationJAY.Models
         public Utilisateur ObtenirUtilisateur(string Identifiant, string motDePasse)
         {
             Utilisateur utilisateurTrouve = context.Utilisateurs.FirstOrDefault(u => u.Identifiant == Identifiant && u.MotDePasse == motDePasse);
-            if (utilisateurTrouve != null)
-            {
-                FormsAuthentication.SetAuthCookie(utilisateurTrouve.Identifiant, true);
-            }
+            
             return utilisateurTrouve;
         }
 

@@ -3,22 +3,24 @@
     ViewData["Title"] = "Connecter";
 }
 
-<h1>Login</h1>
+<h2>Se Connecter</h2>
 
 <div>
     @using (Html.BeginForm("Connecter", "Account"))
     { 
-
+    <p style="color:red">@ViewData["Erreur"]</p>
+        <br />
     <label for="Nom d'utilisateur">Nom d'utilisateur:</label>
     <br />
-    @Html.TextBox("Identifiant", "", new { @type = "email" })
+    @Html.TextBox("Identifiant", "", new { @type = "email",})
     <br /><br />
     <label for="Mot de passe">Mot de passe:</label>
     <br />
 
     @Html.TextBox("motDePasse",  "",new { @type = "password" })
     <br /><br />
-    <input type="submit" value="Register" />
+    <input type="submit" value="se connecter" />
+    @Html.ActionLink("Cree votre compte", "Creer", "Account")
 } 
     
 </div>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebApplicationJAY.Models;
 
 namespace WebApplicationJAY.Controllers
@@ -25,8 +26,24 @@ namespace WebApplicationJAY.Controllers
         [HttpPost]
         public ActionResult Connecter(string identifiant, string motDePasse)
         {
-            dal.ObtenirUtilisateur(identifiant, motDePasse);
+            Utilisateur utilisateurTrouve = dal.ObtenirUtilisateur(identifiant, motDePasse);
+            if (utilisateurTrouve != null)
+            {
+                FormsAuthentication.SetAuthCookie(utilisateurTrouve.Identifiant, true);
+                return RedirectToAction("Index", "Home");
+            }
+
+            else
+            {
+                ViewData["Erreur"] = "Identifiant ou Mot de passe invalide";
+            }
             return View();
+        }
+
+        public ActionResult Deconnecter()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
 
 
