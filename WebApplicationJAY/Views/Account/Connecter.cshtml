@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Connecter";
+}
+
+<h1>Login</h1>
+
+<div>
+    @using (Html.BeginForm("Connecter", "Account"))
+    { 
+
+    <label for="Nom d'utilisateur">Nom d'utilisateur:</label>
+    <br />
+    @Html.TextBox("Identifiant", "", new { @type = "email" })
+    <br /><br />
+    <label for="Mot de passe">Mot de passe:</label>
+    <br />
+
+    @Html.TextBox("motDePasse",  "",new { @type = "password" })
+    <br /><br />
+    <input type="submit" value="Register" />
+} 
+    
+</div>
+

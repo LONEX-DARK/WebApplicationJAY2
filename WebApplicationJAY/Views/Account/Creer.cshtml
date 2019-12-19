@@ -1,0 +1,32 @@
+﻿@model WebApplicationJAY.Models.Utilisateur
+
+
+@{
+    ViewData["Title"] = "Creer";
+}
+
+<h1>Signin</h1>
+
+<div>
+    @using (Html.BeginForm("Creer", "Account"))
+    {
+        <label for="Prénom">Prénom:</label>
+        
+        @Html.TextBox("Prenom")<br />
+        <label for="Nom">Nom:</label>
+        
+        @Html.TextBox("Nom")<br />
+        <label for="Identifiant">Identifiant:</label>
+        
+        @Html.TextBox("Identifiant", "", new { @type = "email" })<br />
+        <br /><br />
+        <label for="Mot de passe">Mot de passe:</label>
+        <br />
+
+        @Html.TextBox("motDePasse", "", new { @type = "password" })
+        <br /><br />
+        <input type="submit" value="Register" />
+    }
+
+</div>
+
