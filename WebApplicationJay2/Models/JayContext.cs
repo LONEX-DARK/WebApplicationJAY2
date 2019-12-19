@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplicationJay2.Models;
 
 namespace WebApplicationJAY.Models
 {
@@ -14,6 +15,7 @@ namespace WebApplicationJAY.Models
 
         }
         public DbSet<Utilisateur> Utilisateurs { get;set; }
+        public DbSet<Share> Shares { get;set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

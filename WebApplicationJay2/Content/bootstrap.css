@@ -10,7 +10,8 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+    margin: 0;
+    background-image: url("https://st4.depositphotos.com/8870660/20070/v/600/depositphotos_200709758-stock-video-real-lens-flare-on-black.jpg");
 }
 article,
 aside,
@@ -46,7 +47,7 @@ a {
   background-color: transparent;
 }
 a:active,
-a:hover {
+a:hover {                     
   outline: 0;
 }
 abbr[title] {

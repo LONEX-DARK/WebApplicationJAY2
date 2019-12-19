@@ -23,15 +23,16 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Actualiter", "About", "Home")</li>
-                    <li>@Html.ActionLink("Ma page", "Contact", "Home")</li>
+                    
+                    <li>@Html.ActionLink("Mon compte", "Contact", "Home")</li>
                     @if (HttpContext.Current.User.Identity.IsAuthenticated == true)
                     {
+                        <li>@Html.ActionLink("ShareTimes", "Actu", "Home")</li>
                         <li>@Html.ActionLink("se deconnecter", "Deconnecter", "Account")</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("connexion", "Connecter", "Account")</li>
+                        <li>@Html.ActionLink("Se connecter", "Connecter", "Account")</li>
                     }
 
                 </ul>

@@ -29,7 +29,7 @@ namespace WebApplicationJAY.Controllers
             Utilisateur utilisateurTrouve = dal.ObtenirUtilisateur(identifiant, motDePasse);
             if (utilisateurTrouve != null)
             {
-                FormsAuthentication.SetAuthCookie(utilisateurTrouve.Identifiant, true);
+                FormsAuthentication.SetAuthCookie(utilisateurTrouve.Id.ToString(), true);
                 return RedirectToAction("Index", "Home");
             }
 

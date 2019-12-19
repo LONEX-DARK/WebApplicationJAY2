@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplicationJay2.Models;
 
 namespace WebApplicationJAY.Models
 {

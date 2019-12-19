@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Actu";
+}
+
+<h2>Actu</h2>
+
+<div>
+    @using (Html.BeginForm("Actu", "Home"))
+    {
+        
+        @Html.TextArea("text", "", new { @type = "text", })
+       
+        <br /><br />
+        <input type="submit" value="publier" />
+        
+    }
+
+</div>
+

@@ -132,8 +132,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Dal.cs" />
     <Compile Include="Models\JayContext.cs" />
+    <Compile Include="Models\Share.cs" />
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,6 +177,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Connecter.cshtml" />
     <Content Include="Views\Account\Creer.cshtml" />
+    <Content Include="Views\Home\Actu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

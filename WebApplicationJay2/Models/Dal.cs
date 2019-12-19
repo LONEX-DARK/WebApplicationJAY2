@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Security;
+using WebApplicationJay2.Models;
 
 namespace WebApplicationJAY.Models
 {
@@ -25,6 +26,12 @@ namespace WebApplicationJAY.Models
             Utilisateur utilisateurTrouve = context.Utilisateurs.FirstOrDefault(u => u.Identifiant == Identifiant && u.MotDePasse == motDePasse);
             
             return utilisateurTrouve;
+        }
+
+        public void CreeShare(Share share)
+        {
+            context.Shares.Add(share);
+            context.SaveChanges();
         }
 
         public void Dispose()
