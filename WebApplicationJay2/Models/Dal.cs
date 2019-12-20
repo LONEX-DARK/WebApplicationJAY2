@@ -28,10 +28,18 @@ namespace WebApplicationJAY.Models
             return utilisateurTrouve;
         }
 
-        public void CreeShare(Share share)
+        public List<Share> CreeShare(Share share)
         {
             context.Shares.Add(share);
             context.SaveChanges();
+
+            return ObtenirLesShares(share.Idutilisateur);
+        }
+
+        public List<Share> ObtenirLesShares(string utilisateurId)
+        {
+            List<Share> resultat = context.Shares.Where(s => s.Idutilisateur == utilisateurId).ToList();
+            return resultat;
         }
 
         public void Dispose()

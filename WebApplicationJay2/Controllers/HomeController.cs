@@ -10,6 +10,13 @@ namespace WebApplicationJay2.Controllers
 {
     public class HomeController : Controller
     {
+        private Dal dal;
+
+        public HomeController()
+        {
+            dal = new Dal();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -25,7 +32,7 @@ namespace WebApplicationJay2.Controllers
         [Authorize]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Mon espace";
 
             return View();
         }
@@ -33,16 +40,16 @@ namespace WebApplicationJay2.Controllers
         [Authorize]
         public ActionResult Actu()
         {
-            return View();
+            List<Share> mesShares = dal.ObtenirLesShares(HttpContext.User.Identity.Name);
+            return View(mesShares);
         }
         
         [HttpPost]
         public ActionResult Actu(string text)
         {
             Share share = new Share { Texte = text, Idutilisateur = HttpContext.User.Identity.Name };
-            Dal dal = new Dal();
-            dal.CreeShare(share);
-            return View();
+            List<Share> mesShares =  dal.CreeShare(share);
+            return View(mesShares);
         }
     }
 }
