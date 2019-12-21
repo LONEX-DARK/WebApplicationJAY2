@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using WebApplicationJAY.Models;
 
@@ -26,6 +22,8 @@ namespace WebApplicationJAY.Controllers
         [HttpPost]
         public ActionResult Connecter(string identifiant, string motDePasse)
         {
+
+
             Utilisateur utilisateurTrouve = dal.ObtenirUtilisateur(identifiant, motDePasse);
             if (utilisateurTrouve != null)
             {
@@ -56,6 +54,20 @@ namespace WebApplicationJAY.Controllers
         [HttpPost]
         public ActionResult Creer(Utilisateur utilisateur)
         {
+            if (dal.IdentifiantExisteDeja(utilisateur.Identifiant) == true)
+            {
+                //Creer un viewData contenant l'erreur
+                ViewData["Erreur"] = "Identifiant existe deja";
+                return View(utilisateur);
+            }
+
+            if (dal.PrenomExisteDeja(utilisateur.Prenom) == true)
+            {
+                //Creer un viewData contenant l'erreur
+                ViewData["Erreur"] = "prenom existe deja";
+                return View(utilisateur);
+            }
+
             dal.CreeUtilisateur(utilisateur);
             return View();
         }

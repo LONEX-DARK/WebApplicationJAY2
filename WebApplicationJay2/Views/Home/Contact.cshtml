@@ -1,16 +1,35 @@
-﻿@{
-    ViewBag.Title = "Mon espace";
+﻿@model WebApplicationJay2.ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Personnel";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2 style="font-weight: bold; color: white">@ViewBag.Title.</h2>
+<h3 style="font-weight: bold; color: white">@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
+<address style="font-weight: bold; color: white">         
+    @Model.Utilisateur.Prenom<br />
+    @Model.Utilisateur.Nom<br />
+    @Model.Utilisateur.Identifiant<br/>
 </address>
 
 <address>
     <strong>me contacter par mail</strong>   <p style="color: blue">ethanjaypro8@gmail.com</p><br />
 </address>
+
+<div>
+    <h2 style="color:whitesmoke">Mes Shares</h2>
+
+    @foreach (var sh in Model.MesShares)
+    {
+        <div class="card" style="color: whitesmoke">
+            <div class="card-header" >
+                Share
+            </div>
+            <div class="card-body" style="border-color: white;">
+                <blockquote class="blockquote mb-0">
+                    <p style="color:whitesmoke">@sh.Texte</p>
+                    <footer class="blockquote-footer"> Posté par @sh.PrenomUtilisateur</footer>
+                </blockquote>
+            </div>
+        </div>
+    }
+</div>

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using WebApplicationJAY.Models;
 using WebApplicationJay2.Models;
+using WebApplicationJay2.ViewModels;
 
 namespace WebApplicationJay2.Controllers
 {
@@ -33,23 +31,25 @@ namespace WebApplicationJay2.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Mon espace";
-
-            return View();
+            List<Share> mesShares = dal.ObtenirLesShares(HttpContext.User.Identity.Name);
+            Utilisateur utilisateur = dal.ObtenirUtilisateur(HttpContext.User.Identity.Name);
+            ContactViewModel vm = new ContactViewModel { Utilisateur = utilisateur, MesShares = mesShares };
+            return View(vm);
         }
 
         [Authorize]
         public ActionResult Actu()
         {
-            List<Share> mesShares = dal.ObtenirLesShares(HttpContext.User.Identity.Name);
-            return View(mesShares);
+            List<Share> TousLesShares = dal.ObtenirTousLesShares();
+            return View(TousLesShares);
         }
-        
+
         [HttpPost]
         public ActionResult Actu(string text)
         {
             Share share = new Share { Texte = text, Idutilisateur = HttpContext.User.Identity.Name };
-            List<Share> mesShares =  dal.CreeShare(share);
-            return View(mesShares);
+            dal.CreeShare(share);
+            return RedirectToAction("Contact", "Home");
         }
     }
 }

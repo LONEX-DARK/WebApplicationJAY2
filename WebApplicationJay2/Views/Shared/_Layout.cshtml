@@ -25,17 +25,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                    <li style="color: whitesmoke">@Html.ActionLink("Accueil", "Index", "Home")</li>
                     
-                    <li>@Html.ActionLink("Mon espace", "Contact", "Home")</li>
+                    <li style="color: whitesmoke">@Html.ActionLink("Mon espace", "Contact", "Home")</li>
                     @if (HttpContext.Current.User.Identity.IsAuthenticated == true)
                     {
-                        <li>@Html.ActionLink("ShareTimes", "Actu", "Home")</li>
-                        <li>@Html.ActionLink("se deconnecter", "Deconnecter", "Account")</li>
+                        <li style="color: whitesmoke">@Html.ActionLink("ShareTimes", "Actu", "Home")</li>
+                        <li style="color: whitesmoke">@Html.ActionLink("se deconnecter", "Deconnecter", "Account")</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Se connecter", "Connecter", "Account")</li>
+                        <li style="color: whitesmoke">@Html.ActionLink("Se connecter", "Connecter", "Account")</li>
                     }
 
                 </ul>

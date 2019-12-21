@@ -1,32 +1,40 @@
 ﻿@model List<WebApplicationJay2.Models.Share>
-
 @{
     ViewBag.Title = "Actu";
 }
 
-<h2>Actu</h2>
+<h2 style="color:whitesmoke; text-align: center">ShareTimes</h2>
 
 <div>
     @using (Html.BeginForm("Actu", "Home"))
     {
-        
+
         @Html.TextArea("text", "", new { @type = "text", })
-       
+
         <br /><br />
         <input type="submit" value="publier" />
-        
+
     }
 
 </div>
 
 <div>
-    <h1>Mes Shares</h1>
+    <h2 style="color:whitesmoke">Tous les Shares</h2>
 
-    <ul>
-        @foreach(var sh in Model)
-        {
-            <li>@sh.Texte</li>
-        }
-    </ul>
+    @foreach (var sh in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                Share
+            </div>
+            <div class="card-body" style="border-color: white;">
+                <blockquote class="blockquote mb-0">
+                    <p style="color:whitesmoke">@sh.Texte</p>
+                    <footer class="blockquote-footer"> Posté par @sh.PrenomUtilisateur</footer>
+                </blockquote>
+            </div>
+        </div>
+    }
 </div>
+
 

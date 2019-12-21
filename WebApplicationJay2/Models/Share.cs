@@ -10,5 +10,6 @@ namespace WebApplicationJay2.Models
         public int Id { get; set; }
         public string Texte { get; set; }
         public string Idutilisateur { get; set; }
+        public string PrenomUtilisateur { get; set; }
     }
 }
